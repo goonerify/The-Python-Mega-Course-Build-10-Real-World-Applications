@@ -36,5 +36,7 @@ for lt,ln,el in zip(lat,lon,elev):
     fill_color=color_maker(el), fill=True, fill_opacity=1.0, color='grey'))
     # fg.add_child(folium.Marker(coords, popup=folium.Popup(str(el)+' m', parse_html=True), icon=folium.Icon(color='green')))
 
+fg.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='utf-8-sig').read())))
+
 map.add_child(fg)
 map.save('map.html')
