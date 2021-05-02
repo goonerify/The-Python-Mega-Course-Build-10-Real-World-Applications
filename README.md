@@ -27,6 +27,9 @@ Install 3rd party package with pip
 Get all properties and methods of an object
 `dir <object name>`
 
+Run a python script from python REPL
+`exec(open("<PYTHON FILE NAME>.py").read())`
+
 ## JUPYTER NOTEBOOK COMMANDS
 
 [Change Jupyter notebook startup directory](https://stackoverflow.com/a/40514875/1445318)
