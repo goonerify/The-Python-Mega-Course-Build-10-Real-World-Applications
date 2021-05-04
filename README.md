@@ -41,6 +41,10 @@ or just [Open the notebook in any directory](https://stackoverflow.com/a/3945388
 
 Comment a line or set of lines
 `ctrl + /`
+Copy a cell
+`c c`
+Delete a cell
+`d d`
 
 ### JUPYTER NOTEBOOK NEW PROJECT SETUP
 
