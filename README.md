@@ -41,21 +41,23 @@ or just [Open the notebook in any directory](https://stackoverflow.com/a/3945388
 
 ### JUPYTER NOTEBOOK NEW PROJECT SETUP
 
-1. Activate virtual environment
-   a. `<path to activate.bat>` i.e `venv\Scripts\activate` OR
+1. Create a new virtual environment
+   `python -m venv <reference a name for your virtual environment i.e venv.test-numpy>`
+2. Activate virtual environment
+   a. `<path to activate.bat>` i.e `venv.test-numpy\Scripts\activate` OR
    b. `conda activate <venv name>`
-2. install ipykernel which provides the IPython kernel for Jupyter
+3. install ipykernel which provides the IPython kernel for Jupyter
    `pip install ipykernel`
-3. Add your virtual environment to Jupyter from your project directory
+4. Add your virtual environment to Jupyter from your project directory
    `python -m ipykernel install --user --name=<any name to reference kernel, usually the venv name>`
 
    This should print something like:<code>Installed kernelspec myenv in <i>/home/user/.local/share/jupyter/kernels/myenv</i></code>
 
    In this folder you will find a <i>kernel.json</i> that points back to the local virtual environment for your project
 
-4. Install dependencies
+5. Install dependencies
    `pip install -r requirements.txt`
-5. Start new jupyter session (from a command prompt )
+6. Start new jupyter session (from a command prompt )
    `jupyter notebook`
 
    In jupyter notebook (reload if necessary), `kernel -> Change kernel -> "Reference kernel name"`
