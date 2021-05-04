@@ -39,6 +39,9 @@ or just [Open the notebook in any directory](https://stackoverflow.com/a/3945388
 
 [Add a new kernel to your Jupyter config from command line: 2](https://janakiev.com/blog/jupyter-virtual-envs/)
 
+Comment a line or set of lines
+`ctrl + /`
+
 ### JUPYTER NOTEBOOK NEW PROJECT SETUP
 
 1. Create a new virtual environment
