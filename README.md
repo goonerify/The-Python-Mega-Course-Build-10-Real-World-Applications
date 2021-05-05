@@ -93,7 +93,19 @@ move cell down: `Ctrl-Down`
 
 ## Flask
 
+## Heroku
+
 ### Heroku Deployment
 
 Procfile is used to instruct heroku on what web server to use to run the app
 runtime.txt will instruct heroku on what version of python to use to run the app
+
+### Heroku Commands
+
+`heroku info` get info about the current app running in heroku
+`heroku open` launch the current app in heroku
+`heroku git:remote --app <app name>` Point your local CLI to a specific app in heroku
+`heroku login` authenticate against the heroku server
+`heroku apps` list all your apps on heroku
+`heroku create <app name>` Create an app called `<app name>` on heroku
+`heroku logs` Print all logs for the current app
