@@ -53,6 +53,8 @@ Delete a cell
 2. Activate virtual environment
    a. `<path to activate.bat>` i.e `venv.test-numpy\Scripts\activate` OR
    b. `conda activate <venv name>`
+   Note that if you don't activate the virtual environment, then you need to run all subsequent commands with the versions of pip and python in the virtual environment i.e
+   `venv.test-numpy\Scripts\python -m ipykernel install ...` and `venv.test-numpy\Scripts\pip install ...`
 3. install ipykernel which provides the IPython kernel for Jupyter
    `pip install ipykernel`
 4. Add your virtual environment to Jupyter from your project directory
@@ -88,3 +90,10 @@ Delete a cell
 
 move cell up: `Ctrl-Up` \
 move cell down: `Ctrl-Down`
+
+## Flask
+
+### Heroku Deployment
+
+Procfile is used to instruct heroku on what web server to use to run the app
+runtime.txt will instruct heroku on what version of python to use to run the app
