@@ -18,6 +18,12 @@ class Account:
             file.write(str(self.balance))
 
 class CheckingAccount(Account):
+    """
+    A checking account
+    """
+    # Class variable shared by all the instances of a class
+    type="checking"
+
     def __init__(self, filepath, fee) -> None:
         Account.__init__(self, filepath)
         self.fee=fee
@@ -34,6 +40,8 @@ class CheckingAccount(Account):
 # print(account.balance)
 
 checking=CheckingAccount("account//balance.txt", 1)
-checking.transfer(40)
-print(checking.balance)
-checking.commit()
+# checking.transfer(40)
+# print(checking.balance)
+# checking.commit()
+
+print(checking.__doc__)
