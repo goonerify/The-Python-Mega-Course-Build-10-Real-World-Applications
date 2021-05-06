@@ -5,123 +5,119 @@ from backend import Database
 
 database=Database()
 
+class Bookstore:
+    def __init__(self) -> None:
+        self.window=Tk()
+        self.window.wm_title("Bookstore")
 
-def row_selected(event):
-    try:
-        global selected_item
-        index=list1.curselection()[0]
-        selected_item=list1.get(index)
+        self.l1 = Label(self.window, text="Title")
+        self.l1.grid(row=0, column=0)
 
-        # fill out the text boxes
-        e1.delete(0, END)
-        e1.insert(END, selected_item[1])
-        e2.delete(0, END)
-        e2.insert(END, selected_item[2])
-        e3.delete(0, END)
-        e3.insert(END, selected_item[3])
-        e4.delete(0, END)
-        e4.insert(END, selected_item[4])
-    except IndexError:
-        pass
+        self.l1 = Label(self.window, text="Author")
+        self.l1.grid(row=0, column=2)
 
+        self.l1 = Label(self.window, text="Year")
+        self.l1.grid(row=1, column=0)
 
-# def get_selected_row():
-#     global selected_item
-#     index=list1.curselection()[0]
-#     selected_item=list1.get(index)
+        self.l1 = Label(self.window, text="ISBN")
+        self.l1.grid(row=1, column=2)
 
-#     return selected_item
+        self.title_text=StringVar()
+        self.e1=Entry(self.window, textvariable=self.title_text)
+        self.e1.grid(row=0, column=1)
 
-def view_records():
-    # Delete from row with index 0 until the last row
-    list1.delete(0, END)
-    for view in database.view():
-        list1.insert(END, view)
+        self.author_text=StringVar()
+        self.e2=Entry(self.window, textvariable=self.author_text)
+        self.e2.grid(row=0, column=3)
 
-def search_records():
-    list1.delete(0, END)
-    for row in database.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
-        list1.insert(END, row)
+        self.year_text=StringVar()
+        self.e3=Entry(self.window, textvariable=self.year_text)
+        self.e3.grid(row=1, column=1)
 
-def add_record():
-    list1.delete(0, END)
-    newid=database.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
-    if (type(newid) == int):
-        list1.insert(END, (newid, title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
+        self.isbn_text=StringVar()
+        self.e4=Entry(self.window, textvariable=self.isbn_text)
+        self.e4.grid(row=1, column=3)
 
-def delete_record():
-    id=selected_item[0]
-    # id=get_selected_row()[0]
-    database.delete(id)
+        self.list1=Listbox(self.window, height=6, width=25)
+        self.list1.grid(row=2, column=0, rowspan=6, columnspan=2)
 
-def update_record():
-    id=selected_item[0]
-    # id=get_selected_row()[0]
-    title, author, year, isbn = title_text.get(), author_text.get(), year_text.get(), isbn_text.get()
-    database.update(id, title, author, year, isbn)
+        self.b1=Scrollbar(self.window)
+        self.b1.grid(row=2, column=2, rowspan=6)
 
-window=Tk()
-window.wm_title("Bookstore")
+        # Configure the listbox for scrolling with the scrollbar
+        self.list1.configure(yscrollcommand=self.b1.set)
+        self.b1.configure(command=self.list1.yview)
 
-l1 = Label(window, text="Title")
-l1.grid(row=0, column=0)
+        # Bind selecting records in the listbox to an event handler
+        # Note: The way the function was written makes this binding unnecessary
+        self.list1.bind('<<ListboxSelect>>', self.row_selected)
 
-l1 = Label(window, text="Author")
-l1.grid(row=0, column=2)
+        self.b1=Button(self.window, text="View all", width=12, command=self.view_records)
+        self.b1.grid(row=2, column=3)
 
-l1 = Label(window, text="Year")
-l1.grid(row=1, column=0)
+        self.b2=Button(self.window, text="Search entry", width=12, command=self.search_records)
+        self.b2.grid(row=3, column=3)
 
-l1 = Label(window, text="ISBN")
-l1.grid(row=1, column=2)
+        self.b3=Button(self.window, text="Add entry", width=12, command=self.add_record)
+        self.b3.grid(row=4, column=3)
 
-title_text=StringVar()
-e1=Entry(window, textvariable=title_text)
-e1.grid(row=0, column=1)
+        self.b4=Button(self.window, text="Update selected", width=12, command=self.update_record)
+        self.b4.grid(row=5, column=3)
 
-author_text=StringVar()
-e2=Entry(window, textvariable=author_text)
-e2.grid(row=0, column=3)
+        self.b5=Button(self.window, text="Delete selected", width=12, command=self.delete_record)
+        self.b5.grid(row=6, column=3)
 
-year_text=StringVar()
-e3=Entry(window, textvariable=year_text)
-e3.grid(row=1, column=1)
+        self.b6=Button(self.window, text="Close", width=12, command=self.window.destroy)
+        self.b6.grid(row=7, column=3)
 
-isbn_text=StringVar()
-e4=Entry(window, textvariable=isbn_text)
-e4.grid(row=1, column=3)
+        # TODO: Add left and right padding to the self.window
+        self.window.mainloop()
 
-list1=Listbox(window, height=6, width=25)
-list1.grid(row=2, column=0, rowspan=6, columnspan=2)
+    def row_selected(self, event):
+        try:
+            index=self.list1.curselection()[0]
+            self.selected_item=self.list1.get(index)
 
-sb1=Scrollbar(window)
-sb1.grid(row=2, column=2, rowspan=6)
+            # fill out the text boxes
+            self.e1.delete(0, END)
+            self.e1.insert(END, self.selected_item[1])
+            self.e2.delete(0, END)
+            self.e2.insert(END, self.selected_item[2])
+            self.e3.delete(0, END)
+            self.e3.insert(END, self.selected_item[3])
+            self.e4.delete(0, END)
+            self.e4.insert(END, self.selected_item[4])
+        except IndexError:
+            pass
 
-# Configure the listbox for scrolling with the scrollbar
-list1.configure(yscrollcommand=sb1.set)
-sb1.configure(command=list1.yview)
+    def view_records(self):
+        # Delete from row with index 0 until the last row
+        self.list1.delete(0, END)
+        for view in database.view():
+            self.list1.insert(END, view)
 
-# Bind selecting records in the listbox to an event handler
-# Note: The way the function was written makes this binding unnecessary
-list1.bind('<<ListboxSelect>>', row_selected)
+    def search_records(self):
+        self.list1.delete(0, END)
+        for row in database.search(self.title_text.get(), self.author_text.get(), self.year_text.get(), self.isbn_text.get()):
+            self.list1.insert(END, row)
 
-b1=Button(window, text="View all", width=12, command=view_records)
-b1.grid(row=2, column=3)
+    def add_record(self):
+        self.list1.delete(0, END)
+        newid=database.insert(self.title_text.get(), self.author_text.get(), self.year_text.get(), self.isbn_text.get())
+        if (type(newid) == int):
+            self.list1.insert(END, (newid, self.title_text.get(), self.author_text.get(), self.year_text.get(), self.isbn_text.get()))
 
-b1=Button(window, text="Search entry", width=12, command=search_records)
-b1.grid(row=3, column=3)
+    def delete_record(self):
+        id=self.selected_item[0]
+        database.delete(id)
 
-b1=Button(window, text="Add entry", width=12, command=add_record)
-b1.grid(row=4, column=3)
+    def update_record(self):
+        id=self.selected_item[0]
+        title, author, year, isbn = self.title_text.get(), self.author_text.get(), self.year_text.get(), self.isbn_text.get()
+        database.update(id, title, author, year, isbn)
 
-b1=Button(window, text="Update selected", width=12, command=update_record)
-b1.grid(row=5, column=3)
+def main():
+    Bookstore()
 
-b1=Button(window, text="Delete selected", width=12, command=delete_record)
-b1.grid(row=6, column=3)
-
-b1=Button(window, text="Close", width=12, command=window.destroy)
-b1.grid(row=7, column=3)
-
-# TODO: Add left and right padding to the window
-window.mainloop()
+if __name__=='__main__':
+    main()
