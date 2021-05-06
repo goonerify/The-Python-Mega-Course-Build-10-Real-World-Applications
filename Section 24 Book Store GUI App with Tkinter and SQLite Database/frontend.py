@@ -4,28 +4,31 @@ from tkinter import *
 import backend
 
 
-def display_selected_row(event):
-    # global selected_item
-    index=list1.curselection()[0]
-    selected_item=list1.get(index)
+def row_selected(event):
+    try:
+        global selected_item
+        index=list1.curselection()[0]
+        selected_item=list1.get(index)
 
-    # fill out the text boxes
-    e1.delete(0, END)
-    e1.insert(END, selected_item[1])
-    e2.delete(0, END)
-    e2.insert(END, selected_item[2])
-    e3.delete(0, END)
-    e3.insert(END, selected_item[3])
-    e4.delete(0, END)
-    e4.insert(END, selected_item[4])
+        # fill out the text boxes
+        e1.delete(0, END)
+        e1.insert(END, selected_item[1])
+        e2.delete(0, END)
+        e2.insert(END, selected_item[2])
+        e3.delete(0, END)
+        e3.insert(END, selected_item[3])
+        e4.delete(0, END)
+        e4.insert(END, selected_item[4])
+    except IndexError:
+        pass
 
 
-def get_selected_row():
-    # global selected_item
-    index=list1.curselection()[0]
-    selected_item=list1.get(index)
+# def get_selected_row():
+#     global selected_item
+#     index=list1.curselection()[0]
+#     selected_item=list1.get(index)
 
-    return selected_item
+#     return selected_item
 
 def view_records():
     # Delete from row with index 0 until the last row
@@ -45,12 +48,13 @@ def add_record():
         list1.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 def delete_record():
-    # id=selected_item[0]
-    id=get_selected_row()[0]
+    id=selected_item[0]
+    # id=get_selected_row()[0]
     backend.delete(id)
 
 def update_record():
-    id=get_selected_row()[0]
+    id=selected_item[0]
+    # id=get_selected_row()[0]
     title, author, year, isbn = title_text.get(), author_text.get(), year_text.get(), isbn_text.get()
     backend.update(id, title, author, year, isbn)
 
@@ -97,7 +101,7 @@ sb1.configure(command=list1.yview)
 
 # Bind selecting records in the listbox to an event handler
 # Note: The way the function was written makes this binding unnecessary
-list1.bind('<<ListboxSelect>>', display_selected_row)
+list1.bind('<<ListboxSelect>>', row_selected)
 
 b1=Button(window, text="View all", width=12, command=view_records)
 b1.grid(row=2, column=3)
