@@ -38,6 +38,7 @@ class Database:
     def __del__(self):
         self.conn.close()
 
+print('My name is {}'.format(__name__))
 # print(insert("The North", "John Snow", 0000, 133466778))
 # insert("The Earth", "John Smith", 1927, 912709990)
 # delete(1)
