@@ -45,7 +45,7 @@ def add_record():
     list1.delete(0, END)
     newid=backend.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
     if (type(newid) == int):
-        list1.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
+        list1.insert(END, (newid, title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 def delete_record():
     id=selected_item[0]

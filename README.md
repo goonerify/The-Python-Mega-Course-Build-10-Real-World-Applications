@@ -109,3 +109,13 @@ runtime.txt will instruct heroku on what version of python to use to run the app
 `heroku apps` list all your apps on heroku
 `heroku create <app name>` Create an app called `<app name>` on heroku
 `heroku logs` Print all logs for the current app
+
+### Pyinstaller Commands
+
+<!--
+frontend.py is the main GUI
+onefile option will create a single executable for all OS's instead of one per OS
+windowed option will prevent attaching a cli window in the background
+-->
+
+`pyinstaller --onefile --windowed frontend.py`
