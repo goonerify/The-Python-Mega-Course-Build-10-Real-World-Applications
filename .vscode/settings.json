@@ -1,3 +1,6 @@
 {
-    "python.pythonPath": "Section 24 Book Store GUI App with Tkinter and SQLite Database\\venv.section-24\\Scripts\\python.exe"
+  "python.pythonPath": "Section 24 Book Store GUI App with Tkinter and SQLite Database\\venv.section-24\\Scripts\\python.exe",
+  "python.analysis.extraPaths": [
+    "Section 24 Book Store GUI App with Tkinter and SQLite Database\\"
+  ]
 }

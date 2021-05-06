@@ -1,3 +1,9 @@
+
+"""
+This code isn't great because it places an open
+database connection in the constructors
+"""
+
 import sqlite3
 from string import Template
 

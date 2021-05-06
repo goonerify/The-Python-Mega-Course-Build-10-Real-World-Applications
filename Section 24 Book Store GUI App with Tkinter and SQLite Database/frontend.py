@@ -1,6 +1,27 @@
 
 from tkinter import *
-from typing import List
+
+import backend
+
+
+def view_records():
+    # Delete from row with index 0 until the last row
+    list1.delete(0, END)
+    for view in backend.view():
+        list1.insert(END, view)
+
+def search_records():
+    list1.delete(0, END)
+    for row in backend.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+        list1.insert(END, row)
+
+def add_record():
+    list1.delete(0, END)
+    newid=backend.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    if (type(newid) == int):
+        list1.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
+
+
 
 window=Tk()
 
@@ -38,13 +59,13 @@ list1.grid(row=2, column=0, rowspan=6, columnspan=2)
 sb1=Scrollbar(window)
 sb1.grid(row=2, column=2, rowspan=6)
 
-b1=Button(window, text="View all", width=12)
+b1=Button(window, text="View all", width=12, command=view_records)
 b1.grid(row=2, column=3)
 
-b1=Button(window, text="Search entry", width=12)
+b1=Button(window, text="Search entry", width=12, command=search_records)
 b1.grid(row=3, column=3)
 
-b1=Button(window, text="Add entry", width=12)
+b1=Button(window, text="Add entry", width=12, command=add_record)
 b1.grid(row=4, column=3)
 
 b1=Button(window, text="Update selected", width=12)

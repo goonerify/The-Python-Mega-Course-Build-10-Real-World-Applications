@@ -12,8 +12,12 @@ def connect():
 def insert(title, author, year, isbn):
     conn=sqlite3.connect("books.db")
     cur=conn.cursor()
-    cur.execute("INSERT INTO book (title, author, year, isbn) VALUES (?,?,?,?)", (title, author, year, isbn))
-    conn.commit()
+    try:
+        cur.execute("INSERT INTO book (title, author, year, isbn) VALUES (?,?,?,?)", (title, author, year, isbn))
+        conn.commit()
+        return cur.lastrowid
+    except sqlite3.OperationalError:
+        return None
 
 def view():
     conn=sqlite3.connect("books.db")
@@ -45,13 +49,11 @@ def update(id, title, author, year, isbn):
     conn.commit()
     conn.close()
 
-    
-
 connect()
-# insert("The Sea", "John Tablet", 1918, 912338990)
+print(insert("The North", "John Snow", 0000, 133466778))
 # insert("The Earth", "John Smith", 1927, 912709990)
 # delete(1)
-update(4, "The Moon", 'John Smooth', 1927, 111111111)
-print(view())
-print(search(author="John Smith"))
+# update(4, "The Moon", 'John Smooth', 1927, 111111111)
+# print(view())
+# print(search(author="John Smith"))
 
