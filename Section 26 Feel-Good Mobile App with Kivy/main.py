@@ -5,9 +5,14 @@ import random
 from datetime import datetime
 from pathlib import Path
 
+from kivy.animation import Animation
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.uix.behaviors import ButtonBehavior
+from kivy.uix.image import Image
 from kivy.uix.screenmanager import Screen, ScreenManager
+
+from hoverable import HoverBehavior
 
 Builder.load_file('design.kv')
 
@@ -63,7 +68,9 @@ class LoginScreenSuccess(Screen):
         else:
             self.ids.quote.text = 'Try another feeling!'
 
-
+# ButtonBehavior should be the first param or button won't work
+class ImageButton(ButtonBehavior, HoverBehavior, Image):
+    pass
 
 class MainApp(App):
     def build(self):

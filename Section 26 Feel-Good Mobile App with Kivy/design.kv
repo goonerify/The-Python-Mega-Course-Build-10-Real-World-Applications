@@ -1,5 +1,5 @@
 <LoginScreen>
-    GridLayout
+    GridLayout:
         cols: 1
         GridLayout:
             cols: 1
@@ -15,7 +15,7 @@
                 id: password
                 password: True
                 hint_text: "Password"
-            RelativeLayout:                
+            RelativeLayout: # Used to size child elements with no siblings to take up empty space                
                 Button:
                     text: "Login"
                     on_press: root.login(root.ids.username.text, root.ids.password.text)
@@ -44,13 +44,16 @@
 <SignUpScreen>
     GridLayout:
         cols: 1
+        padding: 20, 20
+        spacing: 20, 20
         Label:
-            text: "Sign up for a space journey"
+            text: "Sign up for a space journey!"
         TextInput:
             id: username
             hint_text: "Username"
         TextInput:
             id: password
+            password: True
             hint_text: "Password"
         Button:
             text: "Submit"
@@ -68,9 +71,14 @@
 <LoginScreenSuccess>:
     GridLayout:
         cols: 1
-        Button:
-            text: "Logout"
-            on_press: root.logout()
+        padding: 30, 30
+        spacing: 30, 30
+        RelativeLayout:
+            ImageButton:
+                on_press: root.logout()
+                source: 'logout_hover.png' if self.hovered else 'logout_nothover.png'
+                size_hint: 0.35, 0.35
+                pos_hint: {'center_x': 0.93, 'center_y': 0.8} 
         Label:
             text: "How do you feel?"
         TextInput:
