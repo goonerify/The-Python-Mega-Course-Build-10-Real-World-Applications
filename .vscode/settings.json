@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "Section 29 Build a Webcam Motion Detector with OpenCV\\venv.section-29\\Scripts\\python.exe",
+  "python.pythonPath": "Section 30 Interactive Data Visualization with Bokeh\\venv.section-30\\Scripts\\python.exe",
   "python.analysis.extraPaths": [
     "Section 24 Book Store GUI App with Tkinter and SQLite Database\\"
   ]
