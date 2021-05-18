@@ -90,6 +90,8 @@ Delete a cell
 
 move cell up: `Ctrl-Up` \
 move cell down: `Ctrl-Down`
+insert cell above: `a`
+insert cell below: `b`
 
 ## Flask
 
