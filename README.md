@@ -93,8 +93,9 @@ move cell down: `Ctrl-Down`
 insert cell above: `a`
 insert cell below: `b`
 Add cell below to selection: `Shift+j`
-Remove last added cell from selection: `(with Shift pressed)+j`
-Merge multiple selected cells: `(with Shift pressed)+m`
+Remove last added cell from selection: `(in cmd mode with Shift pressed)+j`
+Merge multiple selected cells: `(in cmd mode with Shift pressed)+m`
+Comment / uncomment line: `Ctrl+/`
 
 ## Flask
 
