@@ -1,7 +1,7 @@
 ## Windows Commands
 
-Find where a program is installed (equivalent of `which` command in linux)\
-Command line: `where <program name>` `where /?` (for help)\
+Find where a program is installed (equivalent of `which` command in linux)
+Command line: `where <program name>` `where /?` (for help)
 Powershell: `Get-Command <program name>`
 
 ## PYTHON COMMANDS
@@ -88,10 +88,13 @@ Delete a cell
 
 ### Jupyter useful shortcuts to add
 
-move cell up: `Ctrl-Up` \
+move cell up: `Ctrl-Up`
 move cell down: `Ctrl-Down`
 insert cell above: `a`
 insert cell below: `b`
+Add cell below to selection: `Shift+j`
+Remove last added cell from selection: `(with Shift pressed)+j`
+Merge multiple selected cells: `(with Shift pressed)+m`
 
 ## Flask
 
