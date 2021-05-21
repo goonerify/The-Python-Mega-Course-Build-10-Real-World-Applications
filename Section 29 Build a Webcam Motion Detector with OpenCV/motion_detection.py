@@ -1,4 +1,6 @@
 # Motion detection must be triggered on a static background i.e no moving objects when program is initiated
+# FIXME: This script does not seem to record more than one entry. Compare with the file from the lecture 
+# https://render.githubusercontent.com/view/ipynb?color_mode=dark&commit=836574eeb29b4fbb6192c9e8ade6f63facac6858&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f617264697473756c63657465616368696e672f746865707974686f6e6d656761636f757273652f383336353734656562323962346662623631393263396538616465366636336661636163363835382f5331362d4170702d362d4275696c642d612d57656263616d2d4d6f74696f6e2d4465746563746f722e6970796e62&nwo=arditsulceteaching%2Fthepythonmegacourse&path=S16-App-6-Build-a-Webcam-Motion-Detector.ipynb&repository_id=146125948&repository_type=Repository
 from datetime import datetime, time
 
 import cv2

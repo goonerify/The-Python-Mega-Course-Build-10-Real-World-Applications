@@ -1,6 +1,8 @@
 {
   "python.pythonPath": "Section 30 Interactive Data Visualization with Bokeh\\venv.section-30\\Scripts\\python.exe",
   "python.analysis.extraPaths": [
-    "Section 24 Book Store GUI App with Tkinter and SQLite Database\\"
+    "Section 24 Book Store GUI App with Tkinter and SQLite Database\\",
+    "E:\\Projects\\Samples\\Python\\Udemy\\The Python Mega Course Build 10 Real World Applications\\Section 26 Feel-Good Mobile App with Kivy",
+    "E:\\Projects\\Samples\\Python\\Udemy\\The Python Mega Course Build 10 Real World Applications\\Section 30 Interactive Data Visualization with Bokeh"
   ]
 }
