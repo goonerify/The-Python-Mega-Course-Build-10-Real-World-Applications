@@ -15,10 +15,32 @@
         method="POST"
         enctype="multipart/form-data"
       >
+        <!-- <input
+          title="Your email will be safe with us"
+          placeholder="Enter your email address"
+          type="email"
+          name="email_name"
+        />
+        <br />
+        <input
+          title="Your data will be safe with us"
+          placeholder="Enter your height in cm"
+          type="number"
+          min="50"
+          max="300"
+          name="height_name"
+        />
+        <br /> -->
         <input type="file" name="file" /> <br />
         <button type="submit">Submit</button>
       </form>
-      {% include btn ignore missing %}
+      <!-- Jinja 2 templates comments {# ... #} -->
+      <!-- prettier-ignore -->
+      {# {% include btn ignore missing %} #}
+      {% if btn is defined %} 
+          {% include btn %}
+      {% endif %}
+      <!-- prettier-ignore-end (just placeholder text) -->
     </div>
   </body>
 </html>

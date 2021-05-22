@@ -45,12 +45,14 @@ def success():
             # count=db.session.query(Data.height_).count()
             # send_email(email, height, average_height, count)
             # return render_template("success.html")
-        # return render_template("index.html", text="email already exists")
+    # return render_template("index.html", text="email already exists")
 
         file=request.files["file"]
-        file.save(secure_filename("uploaded"+file.filename))
-        with open("uploaded"+file.filename,"a") as f:
-            f.write("This was added later!")
+        # Sanitize filename for file name entered by the user with secure_filename
+        file_name=secure_filename("uploaded"+file.filename)
+        file.save(file_name)
+        with open(file_name,"a") as f:
+            f.write("This was added later on!")
         print(file)
         print(type(file))
         return render_template("index.html", btn="download.html")
