@@ -1,5 +1,6 @@
-from email.mime.text import MIMEText
 import smtplib
+from email.mime.text import MIMEText
+
 
 def send_email(email, height, average_height, count):
     from_email="myemail@gmail.com"
@@ -14,6 +15,7 @@ def send_email(email, height, average_height, count):
     msg['To']=to_email
     msg['From']=from_email
 
+    # Udemy note: https://www.udemy.com/course/the-python-mega-course/learn/lecture/5189244#notes
     gmail=smtplib.SMTP('smtp.gmail.com',587)
     gmail.ehlo()
     gmail.starttls()
