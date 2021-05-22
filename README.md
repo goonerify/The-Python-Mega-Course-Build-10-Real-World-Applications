@@ -9,7 +9,7 @@ Powershell: `Get-Command <program name>`
 [Create new virtual environment](https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv-win.html#create-a-virtual-python-environment)
 [Create new virtual environment with VS Code](https://stackoverflow.com/a/61092957/1445318)
 
-`python -m venv <reference a name for your virtual environment i.e venv.test.numpy>`
+`python -m venv (virtualenv instead of venv on linux) <reference a name for your virtual environment i.e venv.test.numpy>`
 
 <!---
 Important: Always give your venv a unique name so that you always know which is active
@@ -49,7 +49,7 @@ Delete a cell
 ### JUPYTER NOTEBOOK NEW PROJECT SETUP
 
 1. Create a new virtual environment
-   `python -m venv <reference a name for your virtual environment i.e venv.test-numpy>`
+   `python -m venv (virtualenv instead of venv on linux) <reference a name for your virtual environment i.e venv.test-numpy>`
 2. Activate virtual environment
    a. `<path to activate.bat>` i.e `venv.test-numpy\Scripts\activate` OR
    b. `conda activate <venv name>`
