@@ -7,7 +7,10 @@ from send_email import send_email
 
 app=Flask(__name__)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# For local development, run `from app import db` and `db.create_all()`
+# in a terminal to create all the tables that have associated models
 app.config["SQLALCHEMY_DATABASE_URI"]='postgresql://postgres:changeme@localhost:5432/height_collector'
+## Heroku
 # app.config['SQLALCHEMY_DATABASE_URI']='postgres://ejwuclujctbntz:2ZvGfcHUFzmasNYi-TwQH6lMgf@ec2-50-17-206-164.compute-1.amazonaws.com:5432/d425fslp62inet?sslmode=require'
 db=SQLAlchemy(app)
 
