@@ -8,6 +8,7 @@
     <div class="container">
       <h1>Collecting height</h1>
       <h3>Please fill the entires to get population statistics on height</h3>
+      <!-- Safe filter for automatic escaping -->
       <div class="message">{{text | safe}}</div>
       <form
         action="{{url_for('success')}}"

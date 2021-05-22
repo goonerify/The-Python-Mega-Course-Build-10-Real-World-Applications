@@ -29,6 +29,16 @@ def index():
 def success():
     global file
     if request.method=='POST':
+        ## Send data to database
+        # email = request.form['email_name']
+        # height = request.form['height_name']
+        # if db.session.query(Data).filter(Data.email_==email).count() == 0:
+            # data=Data(email, height)
+            # db.session.add(data)
+            # db.session.commit()
+            # return render_template("success.html")
+        # return render_template("index.html", text="email already exists")
+
         file=request.files["file"]
         file.save(secure_filename("uploaded"+file.filename))
         with open("uploaded"+file.filename,"a") as f:
